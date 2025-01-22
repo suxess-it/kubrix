@@ -15,7 +15,7 @@ backstage:
     serviceMonitor:
       enabled: true
   backstage:
-#    command: ["node", "--require", "./instrumentation.js", "packages/backend"]
+    command: ["node", "--require", "./instrumentation.js", "packages/backend"]
     image:
       registry: ghcr.io/suxess-it
       repository: sx-backstage
@@ -31,8 +31,8 @@ backstage:
 #        value: "0"
 #      - name: LOG_LEVEL
 #        value: "debug"
-#      - name: OTEL_LOG_LEVEL
-#        value: "debug"
+      - name: OTEL_LOG_LEVEL
+        value: "debug"
     extraVolumes:
       - configMap:
           defaultMode: 420
@@ -403,7 +403,22 @@ backstage:
           policyFileReload: true
           database:
             enabled: true
-
+s3:
+  bucketLocatorMethods:
+    - type: config
+      platforms:
+        - endpoint: https://minio.lab.suxessit.k8s.cloud.uibk.ac.at
+          name: minio
+          region: us-east-1
+          accessKeyId: minio
+          secretAccessKey: minio123
+  allowedBuckets:
+    - platform: minio
+      buckets:
+        - velero
+  bucketRefreshSchedule:
+    frequency: { minutes: 30 }
+    timeout: { minutes: 1 }
 ## pgdb
 cluster:
   type: postgresql
