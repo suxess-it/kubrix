@@ -66,8 +66,8 @@
   },
   {
     "chart": "cnpg",
-    "image": "ghcr.io/cloudnative-pg/cloudnative-pg:1.24.1",
-    "id": "cnpg_cloudnative-pg_1.24.1"
+    "image": "ghcr.io/cloudnative-pg/cloudnative-pg:1.25.0",
+    "id": "cnpg_cloudnative-pg_1.25.0"
   },
   {
     "chart": "crossplane",
@@ -496,7 +496,7 @@
   },
   {
     "chart": "velero",
-    "image": "velero/velero:v1.15.1",
-    "id": "velero_velero_v1.15.1"
+    "image": "velero/velero:v1.15.2",
+    "id": "velero_velero_v1.15.2"
   }
 ]
