@@ -6,5 +6,6 @@ tempo:
   tempoQuery:
     # -- if False the tempo-query container is not deployed
     enabled: true
+    remoteWriteUrl: "https://metrics-monitoring.lab.suxessit.k8s.cloud.uibk.ac.at/api/v1/push"
   serviceMonitor:
     enabled: true
